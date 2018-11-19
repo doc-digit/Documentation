@@ -45,14 +45,15 @@ ifndef::imagesdir[:imagesdir: images]
 [mermaid, config="asc.conf", align="center"]
 ....
 graph TB
-A[fa:fa-desktop Client] -->|1.Get file| B(fa:fa-archive Storage)
-B -->|2.Get key to file| A
+A[fa:fa-desktop Client] -->|1.Send file| B(fa:fa-archive Storage)
+B -->|2.Get key of file| A
 A -->|3.Set loading screen :|G[fa:fa-spinner]
 B -->|4. Invoke|C[fa:fa-file API]
 C --> |5. Add record|D[fa:fa-database DB]
 C --> |6. Run for processing|E[fa:fa-server Server]
 E -->|7.Send key for file| B
 B -->|8.File to process|E
+E -->|9.Processing|E
 
 ....
 
@@ -69,6 +70,7 @@ G[fa:fa-spinner] -.-> A[fa:fa-desktop Client]
 
 ....
 
+<<<
 * Zapisanie sesji skanowania
 
 [mermaid, config="asc.conf", align="center"]
@@ -90,6 +92,7 @@ E[fa:fa-server Server] --> |1.Edit record|D[fa:fa-database DB]
 E --> |2. Send file|B[fa:fa-archive Storage]
 ....
 
+<<<
 == Architektura
 
 [mermaid, config="asc.conf", align="center"]
